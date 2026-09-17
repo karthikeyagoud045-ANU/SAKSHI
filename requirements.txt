@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+websockets
+supabase
+faster-whisper
+mediapipe
+easyocr
+sentence-transformers
+opencv-python-headless
+pillow
+pydantic
+numpy
+pytest
+httpx
+onnxruntime

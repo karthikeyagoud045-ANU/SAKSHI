@@ -1,0 +1,181 @@
+[
+  {
+    "id": "seed_normal_1",
+    "inputs": {
+      "text": "There is a large pothole on MG Road near Vidhana Soudha causing traffic congestion",
+      "spans": [
+        {"start_s": 0.0, "end_s": 3.5, "text": "There is a large pothole on MG Road near Vidhana Soudha causing traffic congestion"}
+      ],
+      "gps": {"lat": 12.9716, "lng": 77.5946},
+      "image_embed": [0.1, 0.2, 0.3]
+    },
+    "expected": {
+      "category": "pothole",
+      "urgency": "MEDIUM",
+      "dup_parent": null,
+      "status": "intake",
+      "missing": []
+    }
+  },
+  {
+    "id": "seed_normal_2",
+    "inputs": {
+      "text": "Garbage overflowing from dumpster on Brigade Road attracting flies and causing smell",
+      "spans": [
+        {"start_s": 0.0, "end_s": 4.0, "text": "Garbage overflowing from dumpster on Brigade Road attracting flies and causing smell"}
+      ],
+      "gps": {"lat": 12.9650, "lng": 77.6100},
+      "image_embed": [0.4, 0.5, 0.6]
+    },
+    "expected": {
+      "category": "garbage",
+      "urgency": "MEDIUM",
+      "dup_parent": null,
+      "status": "intake",
+      "missing": []
+    }
+  },
+  {
+    "id": "seed_normal_3",
+    "inputs": {
+      "text": "Street light not working on JC Road near Karnataka High Court",
+      "spans": [
+        {"start_s": 0.0, "end_s": 3.0, "text": "Street light not working on JC Road near Karnataka High Court"}
+      ],
+      "gps": {"lat": 12.9784, "lng": 77.5910},
+      "image_embed": [0.7, 0.8, 0.9]
+    },
+    "expected": {
+      "category": "streetlight",
+      "urgency": "LOW",
+      "dup_parent": null,
+      "status": "intake",
+      "missing": []
+    }
+  },
+  {
+    "id": "seed_duplicate_voice_1",
+    "inputs": {
+      "text": "Voice complaint: Pothole on MG Road causing damage to vehicles",
+      "spans": [
+        {"start_s": 0.0, "end_s": 3.0, "text": "Pothole on MG Road causing damage to vehicles"}
+      ],
+      "gps": {"lat": 12.9716, "lng": 77.5946},
+      "image_embed": [0.1, 0.2, 0.3]
+    },
+    "expected": {
+      "category": "pothole",
+      "urgency": "MEDIUM",
+      "dup_parent": "seed_normal_1",
+      "status": "tray",
+      "missing": []
+    }
+  },
+  {
+    "id": "seed_duplicate_photo_1",
+    "inputs": {
+      "text": "Photo shows pothole on MG Road near Vidhana Soudha",
+      "spans": [],
+      "gps": {"lat": 12.9716, "lng": 77.5946},
+      "image_embed": [0.1, 0.2, 0.3]
+    },
+    "expected": {
+      "category": "pothole",
+      "urgency": "MEDIUM",
+      "dup_parent": "seed_normal_1",
+      "status": "tray",
+      "missing": []
+    }
+  },
+  {
+    "id": "seed_missing_location",
+    "inputs": {
+      "text": "There is a broken water pipe flooding the street",
+      "spans": [
+        {"start_s": 0.0, "end_s": 3.5, "text": "There is a broken water pipe flooding the street"}
+      ],
+      "gps": null,
+      "image_embed": [0.5, 0.5, 0.5]
+    },
+    "expected": {
+      "category": "water_supply",
+      "urgency": "HIGH",
+      "dup_parent": null,
+      "status": "human_review",
+      "missing": ["location"]
+    }
+  },
+  {
+    "id": "seed_conflict_text_image",
+    "inputs": {
+      "text": "Text says there is a fire in the building",
+      "spans": [
+        {"start_s": 0.0, "end_s": 3.0, "text": "Text says there is a fire in the building"}
+      ],
+      "gps": {"lat": 12.9500, "lng": 77.6000},
+      "image_embed": [0.9, 0.1, 0.2]
+    },
+    "expected": {
+      "category": "other",
+      "urgency": "HIGH",
+      "dup_parent": null,
+      "status": "human_review",
+      "missing": [],
+      "conflicts": ["text_vs_image"]
+    }
+  },
+  {
+    "id": "seed_high_urgency_duplicate",
+    "inputs": {
+      "text": "EMERGENCY: Gas leak near residential area, evacuate immediately!",
+      "spans": [
+        {"start_s": 0.0, "end_s": 4.0, "text": "EMERGENCY: Gas leak near residential area, evacuate immediately!"}
+      ],
+      "gps": {"lat": 12.9800, "lng": 77.5800},
+      "image_embed": [0.6, 0.6, 0.6]
+    },
+    "expected": {
+      "category": "other",
+      "urgency": "HIGH",
+      "dup_parent": null,
+      "status": "human_review",
+      "missing": []
+    }
+  },
+  {
+    "id": "seed_telugu_voice",
+    "inputs": {
+      "text": "తెలుగు shruti: MG Roado me pothole undi, traffic problem avutundi",
+      "spans": [
+        {"start_s": 0.0, "end_s": 4.0, "text": "తెలుగు shruti: MG Roado me pothole undi, traffic problem availindi"}
+      ],
+      "gps": {"lat": 12.9716, "lng": 77.5946},
+      "image_embed": [0.2, 0.4, 0.6]
+    },
+    "expected": {
+      "category": "pothole",
+      "urgency": "MEDIUM",
+      "dup_parent": null,
+      "status": "intake",
+      "missing": []
+    }
+  },
+  {
+    "id": "seed_text_only",
+    "inputs": {
+      "text": "Footpath broken near my house, difficult for elderly to walk",
+      "spans": [
+        {"start_s": 0.0, "end_s": 3.5, "text": "Footpath broken near my house, difficult for elderly to walk"}
+      ],
+      "gps": null,
+      "image_embed": null
+    },
+    "expected": {
+      "category": "public_works",
+      "urgency": "MEDIUM",
+      "dup_parent": null,
+      "status": "intake",
+      "missing": ["location"]
+    }
+  }
+]
